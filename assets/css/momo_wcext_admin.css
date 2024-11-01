@@ -1,0 +1,575 @@
+#momo-be-form .bx{
+    font-size: 22px;
+}
+.momo-mb-10{
+    margin-bottom: 10px;
+}
+.momo-mt-20{
+    margin-top: 20px;
+}
+.momo-border-line{
+    border-bottom: 1px solid #f5f4f4;
+    padding-bottom: 10px;
+}
+/** Spinner **/
+@-webkit-keyframes momo-be-spin {
+    from {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(359deg);
+              transform: rotate(359deg);
+    }
+}
+@keyframes momo-be-spin {
+    from {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(359deg);
+                transform: rotate(359deg);
+        -webkit-transform: rotate(359deg);
+                transform: rotate(359deg);
+}
+}
+.momo-be-spinner {
+    opacity: 0;
+    color: #FFF;
+    display: none;
+    vertical-align: middle;
+    flex-shrink: 0;
+    height: 16px;
+    width: 16px;
+    margin: 0 12px 0 0;
+    border: 2px rgba(255, 255, 255, 0.10) solid;
+    border-top: 2px #FFF solid;
+    border-radius: 50%;
+    -webkit-animation: momo-be-spin 1s infinite linear;
+            animation: momo-be-spin 1s infinite linear;
+}
+.momo-be-spinner-text{
+    transition: all 3s;
+    transition: visibility 0s, opacity 0.5s linear;
+    font-family: "Helvetica Neue", sans-serif;
+}
+.momo-be-spinner.spin{
+    display: inline-block;
+    opacity: 1;
+}
+/** Buttons **/
+/** Backend **/
+.momo-be-btn{
+    margin-left: 0;
+    border: none;
+    font: bold 14px 'Open Sans', arial;
+    line-height: normal;
+    text-transform: uppercase;
+    line-height: 150%;
+    display: inline-block;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 4px 15px;
+    border-radius: 20px;
+    margin-bottom: 3px;
+    text-decoration: none;
+}
+.momo-be-btn-primary{
+    background: #FF6978;
+    color: #FFF;
+}
+.momo-be-btn-secondary{
+    background: #0099CC;
+    color: #FFF;
+}
+.momo-be-btn-secondary.resync{
+    background: #3f6e02;
+}
+.momo-be-btn-extra{
+    background: #3d3d3d;
+    color: #FFF;
+}
+.momo-be-btn:hover,
+.momo-be-btn:focus{
+    color: #FFF;
+    opacity: 0.7; 
+}
+/** Backend Working or Loading **/
+@keyframes leftright {
+    0% {
+      left: 0%;margin-left: -50px
+    }
+    100% {
+      left: 100%; margin-left: -50px
+    }
+}
+.momo-be-working{
+    background-color: transparent;
+    height: 5px;
+    width: 100%;
+    border-radius: 10px;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    display: block;
+    overflow: hidden;
+}
+.momo-be-working.show{
+    display:block;
+}
+.momo-be-working.show::before{
+    content: "";
+    width: 200px;
+    height: 100%;
+    display: block;
+    background-color: #FF6978;
+    position: absolute;
+    left: 0;
+    animation-name: leftright;
+    animation-duration: 0.7s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: none;
+    animation-delay: 0s;
+}
+/********************************************/
+/*********Form and Elements*****************/
+#momo-be-form input[type="text"],
+#momo-be-form textarea,
+#momo-be-form select{
+    width: 100%;
+    color: #666666;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+    background-color: #fff;
+    color: #32373c;
+    outline: 0;
+    transition: 50ms border-color ease-in-out;
+    display: block;
+    width: 80%;
+    margin-top: 5px;
+}
+#momo-be-form textarea.momo-w-100{
+    width: 100%;
+}
+#momo-be-form input[type="text"].inline,
+#momo-be-form textarea.inline,
+#momo-be-form select.inline{
+    display: inline-block;
+    max-width: 250px;
+}
+#momo-be-form input[type="text"].inline.wide{
+    max-width: 350px;
+    display: inline-block;
+}
+#momo-be-form input:focus,
+#momo-be-form textarea:focus,
+#momo-be-form select:focus{
+    border-color:#5b9dd9;box-shadow:0 0 2px rgba(30,140,190,.8);outline:2px solid transparent
+}
+#momo-be-form label.regular{
+    font-weight: normal;
+    color: #6F6F6F;
+    margin-bottom: 1px;
+    display: inline-block;
+    font-size: 14px;
+}
+#momo-be-form label.inline{
+    display: inline-block;
+    color: #6F6F6F;
+    margin-right: 11px;
+    min-width: 200px; 
+}
+#momo-be-form span.required{
+    margin-top: 11px;
+    display: block;
+    margin-left: 17px;
+}
+#momo-be-form span.required label{
+    color: #455570;
+    font-weight: bold;
+}
+/********************************************/
+/******* Admin Container / Tabs Settings ****/
+/********************************************/
+.momo-be-wrapper{
+    margin-right: 15px;
+}
+.momo-be-wrapper .nav-tab,
+.momo-be-wrapper .nav-tab-active{
+    border-bottom: 1px solid #d9d7d7;
+}
+.momo-be-tab-table,
+.momo-be-tab-table td{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    border-spacing: 0;
+}
+.momo-be-tab-table ul.momo-be-main-tab{
+    background-color: #f1f1f1;
+    width: 176px;
+    height: auto;
+    border-right: none;
+    padding: 0;
+    margin: 0;
+}
+.momo-be-tab-table ul.momo-be-main-tab li{
+    margin: 0;
+    display: block;
+    border-left: 1px solid #d9d7d7;
+    border-bottom: 1px solid #d9d7d7;
+}
+.momo-be-main-tab a{
+    background-color: inherit;
+    color: #a8a8a8;
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+}
+.momo-be-main-tab a.active{
+    border-left: 4px solid #FF6978;
+    color: #3d3d3d;
+}
+.momo-be-main-tab a i{
+    padding-right: 16px;
+}
+.momo-be-tab-table td.momo-be-main-tabcontent{
+    border: 1px solid #ccc;
+    background: #FFF;
+    border-top: none;
+    padding: 15px;
+
+   transition: height 2s ease;
+}
+.momo-be-tab-table td .momo-be-admin-content{
+    display: none;
+}
+.momo-be-tab-table td.momo-be-main-tabcontent .active{
+    display: block;
+}
+.momo-be-table-header h3{
+    border-bottom: 1px solid #EDEDED;
+    margin: 0;
+    margin-right: 0px;
+    margin-right: 0px;
+    color: #333;
+    font-size: 26px;
+    line-height: 26px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+/*** Yes No Scwitch ***/
+/**** Toggle Switch ***/
+.momo-be-toggle-container{
+    width: 125px;
+    text-align: center;
+}
+.momo-be-toggle-container-label{
+        padding-left: 10px;
+        line-height: 1.8;
+}
+.momo-be-toggle-container .switch{
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 40px;
+    height: 20px;
+    padding: 3px;
+    background-color: #f7f7f7;
+    border-radius: 18px;
+    cursor: pointer;
+}
+.momo-be-toggle-container .switch-input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+.momo-be-toggle-container .switch-label{
+    position: relative;
+    display: block;
+    height: inherit;
+    font-size: 10px;
+    text-transform: uppercase;
+    background: #d4d6d7;
+    border-radius: inherit;
+    -webkit-transition: 0.15s ease-out;
+    -moz-transition: 0.15s ease-out;
+    -o-transition: 0.15s ease-out;
+    transition: 0.15s ease-out;
+    -webkit-transition-property: opacity background;
+    -moz-transition-property: opacity background;
+    -o-transition-property: opacity background;
+    transition-property: opacity background;
+}
+.momo-be-toggle-container .switch-label:before, 
+.momo-be-toggle-container .switch-label:after {
+    position: absolute;
+    top: 50%;
+    margin-top: -.5em;
+    line-height: 1;
+    -webkit-transition: inherit;
+    -moz-transition: inherit;
+    -o-transition: inherit;
+    transition: inherit;
+}
+.momo-be-toggle-container .switch-label:before {
+    content: attr(data-off);
+    right: 11px;
+    color: #352D39;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+    opacity: 0;
+}
+
+.momo-be-toggle-container .switch-label:after {
+    content: attr(data-on);
+    left: 11px;
+    color: #FFF;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+}
+
+.momo-be-toggle-container .switch-input:checked ~ .switch-label {
+    background: #FF6978;
+}
+
+.momo-be-toggle-container .switch-input:checked ~ .switch-label:before {
+    opacity: 0;
+}
+
+.momo-be-toggle-container .switch-input:checked ~ .switch-label:after {
+    opacity: 0;
+}
+.momo-be-toggle-container .switch-handle {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 10px;
+    -webkit-transition: left 0.15s ease-out;
+    -moz-transition: left 0.15s ease-out;
+    -o-transition: left 0.15s ease-out;
+    transition: left 0.15s ease-out;
+}
+
+.momo-be-toggle-container .switch-handle:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -6px 0 0 -6px;
+    width: 12px;
+    height: 12px;
+    background: #f9f9f9;
+    border-radius: 6px;
+}
+.momo-be-toggle-container .switch-input:checked ~ .switch-handle {
+    left: 23px;
+    box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.momo-be-tc-yes-container{
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 15px;
+    background: #f7f7f7;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-right: -15px;
+    margin-left: -15px;
+    display: none;
+}
+.momo-be-tc-yes-container.active{
+    display: block;
+    padding-left: 40px;
+}
+.momo-be-tc-yes-container .textarea_info{
+    padding: 12px;
+    font-style: italic;
+}
+/*** Ends Toggle Switch ***/
+/**************************/
+/**** Inside Admin Container ****/
+.momo-be-section-block-normal{
+    margin-bottom: 6px;
+    margin-top: 6px;
+}
+.momo-be-hr-line{
+    border-bottom: 1px solid #dbdbdb;
+    margin-bottom: 18px;
+    margin-top: 18px;
+    display: block;
+}
+.momo-be-hr-line-full{
+    margin-left: -15px;
+    margin-right: -15px;
+    border-bottom: 1px solid #dbdbdb;
+    margin-bottom: 18px;
+    margin-top: 18px;
+    display: block;
+}
+.momo-be-hr-line-blank{
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: 18px;
+    margin-top: 18px;
+    display: block;
+    border-bottom:1px solid #f7dbdb;
+    clear: both;
+}
+span.momo-be-note{
+    margin:12px 0;
+    font: 13px 'open sans';
+    font-style: italic;
+    display: block;
+    padding: 5px 15px;
+}
+.momo-be-section{
+    margin: 12px 0;
+}
+.momo-be-section-toggle{
+    margin: 18px 0;
+}
+.momo-be-section-header{
+    background:#f1f1f1;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.momo-be-option-block,
+.momo-be-buttons-block,
+.momo-be-section-block{
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 15px;
+    background: #f7f7f7;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-right: -15px;
+    margin-left: -15px;
+    overflow: hidden;
+    display: none;
+}
+.momo-be-buttons-block,
+.momo-be-section-block{
+    display: block;
+}
+.momo-be-buttons-block.import-section{
+    padding-bottom: 0;
+    padding-top: 0;
+}
+@-webkit-keyframes BlockFadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+@keyframes BlockFadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+.momo-be-option-block.show{
+    display: block;
+    -webkit-animation: BlockFadeIn 1s;
+    animation: BlockFadeIn 1s;
+}
+.momo-be-option-block input{
+    width: 300px;
+    color:
+    #666666;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+.momo-be-msg-block{
+    background-color:#f7f9e8;
+    border-left: 4px solid #afa40d;
+    color: #201d16;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0;
+}
+.momo-be-msg-block{
+    display: none;
+}
+.momo-be-msg-block.show{
+    display: block;
+}
+.momo-be-msg-block.warning{
+    background: #F0FAFF;
+    border-left-color: #B4B3F2;
+    color: #B4B3F2;
+}
+.momo-be-msg-block.warning{
+    background: #f2dede;
+    color: #a94442;
+    border-left-color:#a94442;
+}
+/** Metabox **/
+.momo-be-mb-side{}
+/** Basic CSS */
+.momo-be-float-right{
+    float: right;
+}
+@media only screen and (max-width: 900px){
+    .momo-be-tab-table ul.momo-be-main-tab{
+        width: auto;
+    }
+    .momo-be-main-tab li a span{
+        display: none;
+    }
+    .momo-be-main-tab li a{
+        min-width: 20px;
+        text-align: center;
+    }
+    .momo-be-main-tab li a i{
+        padding-right: 0;
+    }
+}
+/********** End Main Backed ****************/
+.momowcext-copy-clipboard{
+    padding: 6px 16px;
+    color: #FFF;
+    text-transform: uppercase;
+    background-color: rgb(49, 101, 126);
+    display: inline-flex;
+    border-radius: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    line-height: 1.5;
+    transition: all 3s;
+}
+.momowcext-copy-clipboard:hover{
+    opacity: .7;
+}
+.momowcext-copy-clipboard i{
+    margin-right: 8px;
+}
+.momo-be-section .select2-container--default .select2-selection--single{
+    border: 1px solid #ddd;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+}
+.momo-be-section .select2-container .select2-selection--single{
+    height: 38px;
+}
+.momo-be-section .select2-container--default .select2-selection--single .select2-selection__rendered{
+    line-height: 33px;
+}
+.momo-be-section .select2-container--default .select2-selection--single .select2-selection__arrow{
+    top: 6px;
+}
